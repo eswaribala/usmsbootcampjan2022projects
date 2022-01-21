@@ -16,8 +16,10 @@ public class App {
 				+ "/resources/spring-config.xml");
 		BeanFactory beanFactory=new XmlBeanFactory(resource);
 		//IOC
-		Customer customer=(Customer) beanFactory.getBean("customer");
-		System.out.println(customer.getCustomerId());
+		Customer customer=(Customer) beanFactory.getBean("customer1");
+		System.out.println("CustomerId "+customer.getCustomerId());
+		customer=(Customer) beanFactory.getBean("customer2");
+		System.out.println("CustomerId "+customer.getCustomerId());
 		
 	}
 
