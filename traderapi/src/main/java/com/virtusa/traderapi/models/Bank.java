@@ -17,6 +17,6 @@ public class Bank {
 	private long bankId;
     @Column(name="Bank_Name",length = 50,nullable = false)
 	private String bankName;
-    @Column(name="Addresss",length = 150,nullable = false)
+    @Column(name="Address",length = 150,nullable = false)
 	private String address;
 }
