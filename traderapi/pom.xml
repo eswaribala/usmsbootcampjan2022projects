@@ -90,7 +90,12 @@
 		    <artifactId>guava</artifactId>
 		    <version>19.0</version>
 		</dependency>
-		
+		<!-- lombok -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <scope>provided</scope>
+		</dependency>
 	</dependencies>
  <repositories>
         <repository>
