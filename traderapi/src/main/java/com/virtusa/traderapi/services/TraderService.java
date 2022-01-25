@@ -18,7 +18,7 @@ public class TraderService {
 	private BankService bankService;
 	
 	//insert 	
-	public Trader addTrader(Trader trader,long bankId) {
+	public Trader addTrader(long bankId,Trader trader) {
 	
 		 Bank bank=this.bankService.getBankById(bankId);
 		 if(bank!=null) 
