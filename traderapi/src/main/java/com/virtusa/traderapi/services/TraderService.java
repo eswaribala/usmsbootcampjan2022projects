@@ -55,7 +55,17 @@ public class TraderService {
 	
 	//update
 	
-	public Trader updateTrader(Trader trader) {
-		return this.traderRepo.save(trader);
+public List<Trader> updateBank(long bankId) {
+		
+		Bank bank=this.bankService.getBankById(bankId);
+		
+		List<Trader> traderList=this.traderRepo.findByBank(bank);
+		
+	    for(Trader trader:traderList) {
+	    	trader.setBank(null);
+	    	this.traderRepo.save(trader);
+	    }
+		
+		return traderList;
 	}
 }

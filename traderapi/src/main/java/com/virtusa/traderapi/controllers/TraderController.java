@@ -8,10 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.virtusa.traderapi.models.Bank;
 import com.virtusa.traderapi.models.Trader;
 
 import com.virtusa.traderapi.services.TraderService;
@@ -37,5 +39,15 @@ public class TraderController {
 	@GetMapping(value="/",params = "version=1.0")
 	public List<Trader> getAllTraders(){
 		return this.traderService.getAllTraders();
+	}
+	
+	
+
+	@PutMapping(value="/{bankId}",params = "version=1.0")
+	public List<Trader> updateTraderWithFKNull(@PathVariable("bankId") long bankId){
+		
+		return this.traderService.updateBank(bankId);
+		
+		
 	}
 }
