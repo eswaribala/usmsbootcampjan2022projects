@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 @Data
 @Entity
@@ -13,6 +15,7 @@ import lombok.Data;
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(hidden = true)
     @Column(name="Bank_Id")
 	private long bankId;
     @Column(name="Bank_Name",length = 50,nullable = false)
