@@ -1,6 +1,8 @@
 package com.virtusa.traderapi.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,8 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.bohnman.squiggly.Squiggly;
+import com.github.bohnman.squiggly.util.SquigglyUtils;
 import com.virtusa.traderapi.models.Bank;
 import com.virtusa.traderapi.models.Trader;
 
@@ -50,4 +56,35 @@ public class TraderController {
 		
 		
 	}
+	
+	
+	//get
+		@GetMapping(value="/filters/{traderId}",params = "version=1.0")
+		public ResponseEntity<?> getTraderByFields(@PathVariable("traderId") long traderId,
+				@RequestParam(name = "fields", required = false) String fields){
+			
+			Map<Object,Object> model=new HashMap<>();
+	    	
+	    	Trader trader = this.traderService.getTraderById(traderId);
+	    	
+	    	if(trader!=null)
+	    	{
+	    		//fields refers to runtime selection
+	    		ObjectMapper mapper = Squiggly.init(new ObjectMapper(), fields);  		
+				return ResponseEntity.ok(SquigglyUtils.stringify(mapper, trader));
+
+	    	}
+	    	else
+	    	{
+		         model.put("message", "trader not existing");
+			        
+		         return ResponseEntity.ok(model);
+	    	}
+
+			
+			
+		}
+		
+	
+	
 }
