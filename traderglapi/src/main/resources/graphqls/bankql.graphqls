@@ -1,0 +1,14 @@
+type Bank {
+	bankId: ID!
+	bankName: String
+	address: String	
+}
+
+type Query {
+	findAllBanks:[Bank]
+	findBank(bankId: ID):Bank
+}
+
+type Mutation {
+	createBank(bankName:String,address:String):Bank
+}
