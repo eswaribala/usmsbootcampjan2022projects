@@ -18,4 +18,5 @@ type Query {
 
 type Mutation {
 	createBank(bankInput:BankInput):Bank
+        updateBank(bankId:ID,address:String):Bank
 }
