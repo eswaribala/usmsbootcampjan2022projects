@@ -4,11 +4,18 @@ type Bank {
 	address: String	
 }
 
+input BankInput {
+
+    bankName: String
+    address: String
+
+}
+
 type Query {
 	findAllBanks:[Bank]
 	findBank(bankId: ID):Bank
 }
 
 type Mutation {
-	createBank(bankName:String,address:String):Bank
+	createBank(bankInput:BankInput):Bank
 }
