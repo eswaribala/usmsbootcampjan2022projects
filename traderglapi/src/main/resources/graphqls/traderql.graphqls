@@ -1,0 +1,23 @@
+type Trader {
+
+ traderId: ID!
+ name: FullName
+ tradingLimit: Long
+ dob: String
+ email: String
+ bank:Bank
+
+}
+
+type FullName {
+
+firstName: String
+lastName: String
+middleName: String
+
+}
+
+extend type Query {
+	findAllTraders:[Trader]
+	findTrader(traderId: ID):Trader
+}
