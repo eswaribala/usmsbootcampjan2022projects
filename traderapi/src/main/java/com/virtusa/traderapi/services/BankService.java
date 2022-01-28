@@ -2,7 +2,12 @@ package com.virtusa.traderapi.services;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.virtusa.traderapi.models.Bank;
@@ -20,19 +25,19 @@ public class BankService {
 	}
 	
 	//list all the banks
-	
+	@Cacheable(value="Bank")
 	public List<Bank> getAllBanks(){
 		return this.bankRepo.findAll();
 	}
 	
 	//list bank by Id
-	
+	@Cacheable(value="Bank", key="#bankId")
 	public Bank getBankById(long bankId) {
 		return this.bankRepo.findById(bankId).orElse(null);
 	}
 	
 	//delete
-
+	 @CacheEvict(value="Bank", key="#bankId")
 	public boolean deleteBankById(long bankId) {
 		boolean status=false;
 		this.bankRepo.deleteById(bankId);
@@ -42,7 +47,7 @@ public class BankService {
 	}
 	
 	//update
-	
+	 @CachePut(value="Bank", key="#bankId")
 	public Bank updateBank(long bankId,String address) {
 		
 		Bank bank=this.getBankById(bankId);

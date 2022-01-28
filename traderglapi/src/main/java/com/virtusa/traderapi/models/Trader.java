@@ -19,11 +19,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "Trader")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Trader {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -27,8 +27,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @EnableSwagger2WebMvc
 @Import(springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfiguration {
-	// public static final String AUTHORIZATION_HEADER = "Authorization";
-	// public static final String DEFAULT_INCLUDE_PATTERN = "/api/.*";
+	
 	 @Bean
 	    public Docket apiDocketcategoryparamv10() {
 	        return new Docket(DocumentationType.SWAGGER_2)
@@ -46,8 +45,7 @@ public class SwaggerConfiguration {
 	                .directModelSubstitute(java.time.LocalDate.class, java.sql.Date.class)
 	                .directModelSubstitute(java.time.ZonedDateTime.class, Date.class)
 	                .directModelSubstitute(java.time.LocalDateTime.class, Date.class)
-	              //  .securityContexts(Lists.newArrayList(securityContext()))
-	               // .securitySchemes(Lists.newArrayList(apiKey()))
+	              
 	                .useDefaultResponseMessages(false);
 	    }
    
@@ -65,18 +63,5 @@ public class SwaggerConfiguration {
                 Collections.emptyList());
     }
     
-	/*
-	 * private ApiKey apiKey() { return new ApiKey("JWT", AUTHORIZATION_HEADER,
-	 * "header"); }
-	 * 
-	 * private SecurityContext securityContext() { return SecurityContext.builder()
-	 * .securityReferences(defaultAuth())
-	 * .forPaths(PathSelectors.regex(DEFAULT_INCLUDE_PATTERN)) .build(); }
-	 * 
-	 * List<SecurityReference> defaultAuth() { AuthorizationScope authorizationScope
-	 * = new AuthorizationScope("global", "accessEverything"); AuthorizationScope[]
-	 * authorizationScopes = new AuthorizationScope[1]; authorizationScopes[0] =
-	 * authorizationScope; return Lists.newArrayList( new SecurityReference("JWT",
-	 * authorizationScopes)); }
-	 */
+	
 }
