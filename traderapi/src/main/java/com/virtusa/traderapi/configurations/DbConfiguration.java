@@ -9,9 +9,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 @Data
 @Configuration
 @EnableConfigurationProperties(VaultConfiguration.class)
+@Slf4j
 public class DbConfiguration {
     @Value("${db_url}")
 	private String dbUrl;
@@ -29,6 +31,8 @@ public class DbConfiguration {
 		dataSourceBuilder=DataSourceBuilder.create();
 	
     	dataSourceBuilder.url(dbUrl);
+    	log.info("UserName"+vaultConfiguration.getUsername());
+    	log.info("Password"+vaultConfiguration.getPassword());
     	dataSourceBuilder.username(vaultConfiguration.getUsername());
     	dataSourceBuilder.password(vaultConfiguration.getPassword());
     	dataSourceBuilder.driverClassName(driver);
