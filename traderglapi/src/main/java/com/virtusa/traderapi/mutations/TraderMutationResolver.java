@@ -19,14 +19,17 @@ import com.virtusa.traderapi.services.TraderService;
 public class TraderMutationResolver implements GraphQLMutationResolver{
 	@Autowired
 	private TraderService traderService;
+	@Autowired
+	private BankService bankService;
 	
 	public Trader createTrader(TraderInput traderInput) {
 		
 		
-		return this.traderService.addTrader(traderInput.getTraderId(),
-				new Trader(0,new FullName(traderInput.getName().getFirstName(),traderInput.getName().getLastName(),
+		return this.traderService.addTrader(0,new Trader(0,new FullName(traderInput.getName().getFirstName(),traderInput.getName().getLastName(),
 						traderInput.getName().getMiddleName()),traderInput.getTradingLimit(),
-				traderInput.getEmail(),LocalDate.parse(traderInput.getDob()),new Bank()));
+				traderInput.getEmail(),LocalDate.parse(traderInput.getDob()),
+				new Bank()));
+		
 	}
 	
 	

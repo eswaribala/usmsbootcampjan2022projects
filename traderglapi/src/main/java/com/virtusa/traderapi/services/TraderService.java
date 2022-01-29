@@ -22,7 +22,7 @@ public class TraderService {
 	
 		 Bank bank=this.bankService.getBankById(bankId);
 		 if(bank!=null) 
-			 trader.setBank(bank);			
+			 trader.setBank(bank);		
 		 
 		 else
 			 trader.setBank(null);
@@ -30,6 +30,8 @@ public class TraderService {
 		 return trader;
 		 
 		}
+	
+	
 	
 	//list all the traders
 	

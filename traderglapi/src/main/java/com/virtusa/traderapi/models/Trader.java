@@ -1,5 +1,6 @@
 package com.virtusa.traderapi.models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
@@ -28,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "Trader")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Trader {
+public class Trader implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Trader_Id")
