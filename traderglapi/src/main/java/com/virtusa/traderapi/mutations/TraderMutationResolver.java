@@ -25,10 +25,10 @@ public class TraderMutationResolver implements GraphQLMutationResolver{
 	public Trader createTrader(TraderInput traderInput) {
 		
 		
-		return this.traderService.addTrader(0,new Trader(0,new FullName(traderInput.getName().getFirstName(),traderInput.getName().getLastName(),
+		return this.traderService.addTrader(traderInput.getBank().getBankId(),new Trader(0,new FullName(traderInput.getName().getFirstName(),traderInput.getName().getLastName(),
 						traderInput.getName().getMiddleName()),traderInput.getTradingLimit(),
 				traderInput.getEmail(),LocalDate.parse(traderInput.getDob()),
-				new Bank()));
+				null));
 		
 	}
 	

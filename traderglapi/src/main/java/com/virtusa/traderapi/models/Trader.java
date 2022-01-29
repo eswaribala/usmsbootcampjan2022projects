@@ -45,7 +45,7 @@ public class Trader implements Serializable{
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name="DOB")
 	private LocalDate dob;
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
 	@JoinColumn(foreignKey = @ForeignKey(name = "Bank_Id"), name = "Bank_Id" )
 	private Bank bank;
 
