@@ -3,6 +3,8 @@ package com.virtusa.traderapi.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,12 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.virtusa.traderapi.models.Bank;
 import com.virtusa.traderapi.services.BankService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/banks")
+@RefreshScope
+@Slf4j
 public class BankController {
 	@Autowired
 	private BankService bankService;
-	
+	@Value("${newmessage}")
+	private String message;
 	//post
 	@PostMapping(value="/",params = "version=1.0")
 	public ResponseEntity<?> addBank(@RequestBody Bank bank){
@@ -37,6 +44,7 @@ public class BankController {
 	//get
 	@GetMapping(value="/",params = "version=1.0")
 	public List<Bank> getAllBanks(){
+		log.info("Message"+message);
 		return this.bankService.getAllBanks();
 	}
 	
