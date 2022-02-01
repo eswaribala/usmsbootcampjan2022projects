@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-@EnableCaching
+//@EnableCaching
 @EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 public class TraderapiApplication {
 

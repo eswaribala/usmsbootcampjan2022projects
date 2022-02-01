@@ -15,7 +15,11 @@ import lombok.Data;
 @Entity
 @Table(name = "Bank")
 public class Bank implements Serializable{
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(hidden = true)
     @Column(name="Bank_Id")

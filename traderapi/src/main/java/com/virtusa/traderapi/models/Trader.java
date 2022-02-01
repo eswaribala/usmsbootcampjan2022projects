@@ -26,6 +26,10 @@ import lombok.Data;
 @Entity
 @Table(name = "Trader")
 public class Trader implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Trader_Id")
