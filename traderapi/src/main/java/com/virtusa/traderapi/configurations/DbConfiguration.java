@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @EnableConfigurationProperties(VaultConfiguration.class)
 @Slf4j
 public class DbConfiguration {
-    @Value("${db_url}")
+    @Value("${db_url1}")
 	private String dbUrl;
     @Value("${db_driver}")
 	private String driver;
