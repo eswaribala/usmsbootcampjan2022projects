@@ -1,0 +1,58 @@
+pipeline {
+    agent any
+ 
+    stages {
+        stage ('Clone') {
+            steps {
+                git branch: 'master', url: "https://github.com/eswaribala/usmsbootcampjan2022projects.git"
+            }
+        }
+ 
+        stage ('Artifactory Configuration') {
+            steps {
+               
+                  rtServer (
+                    id: "ART",
+                    url: "http://localhost:8081/artifactory",
+                    credentialsId: "ARTID"
+                )
+ 
+                rtMavenResolver (
+                    id: 'maven-resolver',
+                    serverId: 'ART',
+                    releaseRepo: 'veb-libs-release-local',
+                    snapshotRepo: 'veb-libs-snapshot-local'
+                )  
+                 
+                rtMavenDeployer (
+                    id: 'maven-deployer',
+                    serverId: "ART",
+                    releaseRepo: 'veb-libs-release-local',
+                    snapshotRepo: 'veb-libs-snapshot-local',
+                    threads: 6,
+                    properties: ['BinaryPurpose=Technical-BlogPost', 'Team=DevOps-Acceleration']
+                )
+            }
+        }
+        
+        stage('Build Maven Project') {
+            steps {
+                rtMavenRun (
+                    tool: 'maven',
+                    pom: './customerapi/pom.xml',
+                    goals: 'clean install -DskipTests',
+                    deployerId: "maven-deployer",
+                    resolverId: "maven-resolver"
+                )
+            }
+        }
+ 
+         stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "ART"
+                )
+            }
+        }
+    }
+}
