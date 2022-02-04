@@ -66,15 +66,14 @@
 <distributionManagement>
     <repository>
         <id>central</id>
-        <name>7d963789ed20-releases</name>
+        <name>cf99850672dd-releases</name>
         <url>http://localhost:8081/artifactory/veb-libs-release-local</url>
     </repository>
-    <snapshotRepository>
+      <snapshotRepository>
         <id>snapshots</id>
-        <name>7d963789ed20-snapshots</name>
+        <name>cf99850672dd-snapshots</name>
         <url>http://localhost:8081/artifactory/veb-libs-snapshot-local</url>
     </snapshotRepository>
-
 </distributionManagement>
 
 
