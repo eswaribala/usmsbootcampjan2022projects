@@ -19,9 +19,16 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.JoinColumn;
 @Entity
 @Table(name="VS_USERS")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 	@Id
 	@Column(name="User_Name",length = 50)
@@ -36,36 +43,6 @@ public class User {
 	@JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
     private List<Role> roles;
 	
-	public User(String username, String password, List<Role> roles) {
-        super();
-        this.userName = username;
-        this.password = password;
-        this.roles = roles;
-    }
-
-
-
-    public User() {
-        super();
-    }
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public List<Role> getRoles() {
-		return roles;
-	}
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
 
 
 }
