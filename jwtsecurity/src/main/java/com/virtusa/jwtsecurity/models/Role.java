@@ -27,12 +27,15 @@ public class Role  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Role_Id")
 	private long roleId;
-	
+   
+
 	@Column(name="Role_Name",nullable = false)
 	private String roleName;
 	
 	 @ManyToMany(mappedBy = "roles")
 	    private List<User> users;
 	 
-	
+	 public Role(String role) {
+	        this.roleName = role;
+	    }
 }
