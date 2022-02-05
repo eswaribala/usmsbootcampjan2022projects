@@ -1,4 +1,4 @@
-package com.virtusa.jwtsecurity.services;
+package com.virtusa.traderapi.services;
 
 import java.util.List;
 import java.util.Set;
@@ -15,8 +15,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.virtusa.jwtsecurity.models.Role;
-import com.virtusa.jwtsecurity.models.User;
+import com.virtusa.traderapi.models.Role;
+import com.virtusa.traderapi.models.User;
+
+
 
 
 

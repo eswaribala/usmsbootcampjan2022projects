@@ -1,4 +1,4 @@
-package com.virtusa.jwtsecurity.controllers;
+package com.virtusa.traderapi.controllers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,15 +19,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.virtusa.jwtsecurity.configurations.JwtUtil;
-import com.virtusa.jwtsecurity.dtos.JwtRequest;
-import com.virtusa.jwtsecurity.dtos.JwtResponse;
-import com.virtusa.jwtsecurity.exceptions.DisabledUserException;
-import com.virtusa.jwtsecurity.exceptions.InvalidUserCredentialsException;
-import com.virtusa.jwtsecurity.models.Role;
-import com.virtusa.jwtsecurity.models.User;
-import com.virtusa.jwtsecurity.services.UserAuthService;
-import com.virtusa.jwtsecurity.services.UserService;
+import com.virtusa.traderapi.configurations.JwtUtil;
+import com.virtusa.traderapi.exceptions.DisabledUserException;
+import com.virtusa.traderapi.exceptions.InvalidUserCredentialsException;
+import com.virtusa.traderapi.models.Role;
+import com.virtusa.traderapi.models.User;
+import com.virtusa.traderapi.services.UserAuthService;
+import com.virtusa.traderapi.services.UserService;
+import com.virtusa.traderapi.vos.JwtRequest;
+import com.virtusa.traderapi.vos.JwtResponse;
+
 
 
 
