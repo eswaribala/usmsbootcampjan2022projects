@@ -1,8 +1,10 @@
 package com.virtusa.apigateway.filters;
 
+import org.springframework.stereotype.Component;
+
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.exception.ZuulException;
-
+@Component
 public class PostFilter  extends ZuulFilter{
 
 	@Override
