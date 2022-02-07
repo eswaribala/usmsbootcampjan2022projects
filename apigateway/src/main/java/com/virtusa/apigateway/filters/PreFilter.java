@@ -71,9 +71,8 @@ public class PreFilter  extends ZuulFilter{
         HttpServletRequest servletRequest = ctx.getRequest();
         log.info("Entering pre filter........");
         log.info( servletRequest.getRemoteAddr());
-        log.info("request"+servletRequest);
         log.info("PreFilter: " + String.format("%s request to %s",  servletRequest.getMethod(), servletRequest.getRequestURL().toString()));
-        /*
+        
         //http://localhost:8765/api/trader?userName=eswari&userPwd=test@123
         Map<String,List<String>> params=ctx.getRequestQueryParams();
          
@@ -95,7 +94,6 @@ public class PreFilter  extends ZuulFilter{
     	HttpHeaders headers = new HttpHeaders();
 	       headers.setContentType(MediaType.APPLICATION_JSON);
 	    HttpEntity request = new HttpEntity<>(jwtRequest,headers);
-	    */
  	        //phase 1 get jwt token
 	    //synchronous inter service communication
 	    //http://localhost:9093/signin
@@ -105,7 +103,7 @@ public class PreFilter  extends ZuulFilter{
 	"userPwd":"test@123"
 }
 	     */
-	    /*
+	    
  	    ResponseEntity<?> authResponse=restTemplate.
  		      postForEntity(authUrl+"signin",request, String.class);
  	    log.info(authResponse.getBody().toString());
@@ -127,19 +125,18 @@ public class PreFilter  extends ZuulFilter{
 		  String.class); 
 		 System.out.println(responseEntityStr.getBody());
 		 log.info("token : {} Verification Passed", token);
-         */
+         
          //Routing requests
          ctx.setSendZuulResponse(true);
-    	//}
-    	/*
-         catch(Exception exception)
+    	}
+    	catch(Exception exception)
     	{
     		log.error("token : {} Validation failed" , token );
             //Do not route requests
             ctx.setSendZuulResponse(false);
             responseError(ctx, -403, "invalid token");
     	}
-    	*/
+    	
              
                 
                
