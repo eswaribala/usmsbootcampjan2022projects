@@ -15,6 +15,9 @@ public class PreFilter  extends ZuulFilter{
 	public Object run() throws ZuulException {
 		// TODO Auto-generated method stub
 		//filter logic
+		
+		
+		
 		return null;
 	}
 

@@ -40,7 +40,7 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/","/swagger-ui.html","/signin", "/signup");
+		web.ignoring().antMatchers("/signin", "/signup");
 	}
 
 	@Autowired
@@ -50,7 +50,7 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/","/swagger-ui.html","/signin", "/signup").permitAll().anyRequest()
+		http.csrf().disable().authorizeRequests().antMatchers("/signin", "/signup").permitAll().anyRequest()
 				.authenticated().and().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
