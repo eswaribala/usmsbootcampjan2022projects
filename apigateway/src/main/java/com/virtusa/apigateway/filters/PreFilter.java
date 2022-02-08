@@ -127,6 +127,7 @@ public class PreFilter  extends ZuulFilter{
 		 log.info("token : {} Verification Passed", token);
          
          //Routing requests
+		 //default router
          ctx.setSendZuulResponse(true);
     	}
     	catch(Exception exception)

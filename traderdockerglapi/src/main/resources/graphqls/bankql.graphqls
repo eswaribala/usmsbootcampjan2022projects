@@ -1,0 +1,27 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Bank {
+	bankId: ID!
+	bankName: String
+	address: String	
+}
+
+input BankInput {
+
+    bankName: String
+    address: String
+
+}
+
+type Query {
+	findAllBanks:[Bank]
+	findBank(bankId: ID):Bank
+}
+
+type Mutation {
+	createBank(bankInput:BankInput):Bank
+        updateBank(bankId:ID,address:String):Bank
+}
