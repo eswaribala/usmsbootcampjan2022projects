@@ -6,10 +6,10 @@ spring:
       default-filters:
         - TokenRelay
       routes:
-        - id: callme-service
-          uri: http://127.0.0.1:7074
+        - id: TRADER-API
+          uri: http://127.0.0.1:7070
           predicates:
-            - Path=/callme/**
+            - Path=/trader/**
           filters:
             - RemoveRequestHeader=Cookie
   security:
@@ -17,21 +17,21 @@ spring:
       client:
         provider:
           keycloak:
-            token-uri: http://localhost:7070/auth/realms/master/protocol/openid-connect/token
-            authorization-uri: http://localhost:7070/auth/realms/master/protocol/openid-connect/auth
-            userinfo-uri: http://localhost:7070/auth/realms/master/protocol/openid-connect/userinfo
+            token-uri: http://localhost:6062/auth/realms/master/protocol/openid-connect/token
+            authorization-uri: http://localhost:6062/auth/realms/master/protocol/openid-connect/auth
+            userinfo-uri: http://localhost:6062/auth/realms/master/protocol/openid-connect/userinfo
             user-name-attribute: preferred_username
         registration:
           keycloak-with-test-scope:
             provider: keycloak
-            client-id: spring-with-test-scope
-            client-secret: f13c3410-8b8d-47d2-bda5-9a8445b7fe19
+            client-id: client1
+            client-secret: c74fbbc7-d6ed-4832-a743-1160b021f953
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
           keycloak-without-test-scope:
             provider: keycloak
-            client-id: spring-without-test-scope
-            client-secret: 136771ac-cfe9-4aa3-8661-0372155c5f7f
+            client-id: client2
+            client-secret: 12a3ac9a-4f2d-4bfa-a700-daa640e4fff8
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
 
