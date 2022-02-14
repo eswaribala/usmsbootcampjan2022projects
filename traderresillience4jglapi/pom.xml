@@ -17,6 +17,10 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -125,7 +129,7 @@
 			<version>4.7.1</version>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-data-redis</artifactId>
     
@@ -134,7 +138,7 @@
       <groupId>redis.clients</groupId>
       <artifactId>jedis</artifactId>
       
-    </dependency>
+    </dependency> -->
  <!-- resilience4j -->
 		 <!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-spring-boot2 -->
 		<dependency>
