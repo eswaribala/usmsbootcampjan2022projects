@@ -16,7 +16,7 @@ public class CBController {
 	@GetMapping("/traders")
 	public ResponseEntity<?> callCBHandler(){
 		
-		cbHandler.requestHandler();
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body("Circuit Closed");
+		String message=cbHandler.requestHandler();
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(message);
 	}
 }

@@ -35,19 +35,19 @@ public class CBHandler {
                     @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "1440")
             })
 
-   public void requestHandler()
+   public String requestHandler()
 	{
    	  	
 		restTemplate.exchange(serviceUrl,HttpMethod.GET,null,String.class);
-		
+		return "Circuit Closed";
 	}
 	
-	public void fallbackRequestHandler()
+	public String fallbackRequestHandler()
 	{
 		
 		restTemplate.exchange(fallBackUrl,HttpMethod.GET,null,String.class);
 		
-		
+		return "Circuit Open and Handled";
 	}
 
    
