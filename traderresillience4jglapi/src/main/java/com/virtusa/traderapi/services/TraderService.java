@@ -1,6 +1,9 @@
 package com.virtusa.traderapi.services;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.virtusa.traderapi.models.Bank;
+import com.virtusa.traderapi.models.FullName;
 import com.virtusa.traderapi.models.Trader;
 import com.virtusa.traderapi.repositories.BankRepo;
 import com.virtusa.traderapi.repositories.TraderRepo;
@@ -43,7 +47,7 @@ public class TraderService {
 	
 	
 	//list all the traders
-	@Retry(name = "traderSearch")
+	@Retry(name = "traderSearch",fallbackMethod = "localTraderSearch")
 	public List<Trader> getAllTraders(){
 		
 		return traderRepo.findAll();
@@ -51,11 +55,23 @@ public class TraderService {
 	}
 	
 	
-	/*
-	 * public ResponseEntity<String> remoteTraderSearch(){
-	 * 
-	 * return restTemplate.exchange(nasdaqUrl, HttpMethod.GET); }
-	 */
+	
+	 public List<Trader> localTraderSearch(){
+	  
+		List<Trader> traderList=new ArrayList<Trader>(); 
+	    for(int i=0;i<10;i++) {
+	    	
+	    	traderList.add(new Trader(new Random().nextInt(100000),
+	    			new FullName("FirstName"+i,"LastName"+i,""),new Random().nextInt(100000),
+	    			"virtusatrader"+i+"@gmail.com",LocalDate.of(1980+new Random().nextInt(10), 
+	    					1+new Random().nextInt(11) , 
+	    					1+new Random().nextInt(26)), new Bank()));
+	    }
+	    
+	    return traderList;
+		 
+	 }
+	 
 	
 	//list trader by Id
 	
