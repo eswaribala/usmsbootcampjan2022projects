@@ -54,9 +54,8 @@ public class TraderService {
 		
 	}
 	
-	
-	
-	 public List<Trader> localTraderSearch(){
+	//fallback method should have exception as additional parameter
+	 public List<Trader> localTraderSearch(RuntimeException re){
 	  
 		List<Trader> traderList=new ArrayList<Trader>(); 
 	    for(int i=0;i<10;i++) {
