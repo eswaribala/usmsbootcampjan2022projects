@@ -3,12 +3,18 @@ package com.virtusa.traderapi.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.virtusa.traderapi.models.Bank;
 import com.virtusa.traderapi.models.Trader;
 import com.virtusa.traderapi.repositories.BankRepo;
 import com.virtusa.traderapi.repositories.TraderRepo;
+
+import io.github.resilience4j.retry.annotation.Retry;
 
 @Service
 public class TraderService {
@@ -16,7 +22,10 @@ public class TraderService {
 	private TraderRepo traderRepo;
 	@Autowired
 	private BankService bankService;
-	
+	@Autowired
+	private RestTemplate restTemplate;
+	@Value("${nasdaqUrl}")
+	private String nasdaqUrl;
 	//insert 	
 	public Trader addTrader(long bankId,Trader trader) {
 	
@@ -34,10 +43,19 @@ public class TraderService {
 	
 	
 	//list all the traders
-	
+	@Retry(name = "traderSearch")
 	public List<Trader> getAllTraders(){
-		return this.traderRepo.findAll();
+		
+		return traderRepo.findAll();
+		
 	}
+	
+	
+	/*
+	 * public ResponseEntity<String> remoteTraderSearch(){
+	 * 
+	 * return restTemplate.exchange(nasdaqUrl, HttpMethod.GET); }
+	 */
 	
 	//list trader by Id
 	

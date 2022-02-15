@@ -44,7 +44,7 @@ public class TraderController {
 	//get
 	@GetMapping(value="/",params = "version=1.0")
 	public List<Trader> getAllTraders(){
-		return this.traderService.getAllTraders();
+	    return this.traderService.getAllTraders();
 	}
 	
 	
