@@ -1,5 +1,5 @@
 package com.usbootcamp.paymentapi.configurations;
-
+/*
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -65,3 +65,4 @@ public class SwaggerConfiguration {
     
 	
 }
+*/
