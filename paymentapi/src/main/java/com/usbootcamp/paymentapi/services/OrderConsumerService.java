@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class OrderConsumerService {
 
+	private Order order;
 
     @KafkaListener(topics = "${order.topic.name}", 
 			groupId = "${order.topic.group.id}")
@@ -20,7 +21,12 @@ public class OrderConsumerService {
 		
     	log.info(message);
     	Gson gson = new Gson();
-    	Order order = gson.fromJson(message, Order.class);
+    	order = gson.fromJson(message, Order.class);
     	log.info(order.getOrderId()+","+order.getOrderDate().toString()+","+order.getOrderAmount());
 	}
+    
+    
+    public Order getOrder() {
+    	return this.order;
+    }
 }
