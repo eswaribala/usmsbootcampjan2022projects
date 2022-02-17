@@ -50,6 +50,7 @@
 		</dependency>
 		
 		<!-- Kafka dependency -->
+		<!-- Kafka Auto configuration -->
 	   <dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
