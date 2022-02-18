@@ -22,6 +22,9 @@ public class StockConsumerService {
 	 this.payment=payment;
     }
 	
+	public Payment getPayment() {
+		return this.payment;
+	}
 	
 
 }

@@ -1,5 +1,5 @@
 package com.usbootcamp.stockapi.configurations;
-/*
+
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -31,10 +31,10 @@ public class SwaggerConfiguration {
 	 @Bean
 	    public Docket apiDocketcategoryparamv10() {
 	        return new Docket(DocumentationType.SWAGGER_2)
-	        		.groupName("order-api-param-1.0")
+	        		.groupName("stock-api-param-1.0")
 	                .select()
 	                .apis(RequestHandlerSelectors
-	                        .basePackage("com.usbootcamp.orderapi"))
+	                        .basePackage("com.usbootcamp.stockapi"))
 	                .paths(PathSelectors.any())
 	                .build()
 	                .apiInfo(getApiInfo())
@@ -51,7 +51,7 @@ public class SwaggerConfiguration {
    
     private ApiInfo getApiInfo() {
         return new ApiInfo(
-                "Order API",
+                "Stock API",
                 "App to demonstrate API Documentation",
                 "0.0.1-SNAPSHOT",
                 "Terms of Service",
@@ -65,4 +65,3 @@ public class SwaggerConfiguration {
     
 	
 }
-*/
