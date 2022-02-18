@@ -13,11 +13,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class StockConsumerService {
 
+	private Payment payment;
 
 	@StreamListener(target = StockFacade.input)
     public void handlePayment(@Payload Payment payment) {
      log.info("invoked.....");   
 	 log.info("Received Payment details: {}",payment);
+	 this.payment=payment;
     }
+	
+	
 
 }
