@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ import com.usbootcamp.paymentapi.models.Payment;
 import com.usbootcamp.paymentapi.services.PaymentService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/payments")
 public class PaymentController {
     @Autowired
 	private PaymentService paymentService;
@@ -26,6 +27,14 @@ public class PaymentController {
     		return ResponseEntity.status(HttpStatus.ACCEPTED).body(payment);
     	else
     		return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Transaction Failed");
+    }
+    
+    @PostMapping(value="/{transactionId}",params = "version=1.0")
+    public ResponseEntity<?> publishPayment(@PathVariable("transactionId") 
+    long transactionId){
+    	
+    	paymentService.publishPayment(transactionId);
+    	return ResponseEntity.ok("Payment Details Published....");
     }
     
 }
