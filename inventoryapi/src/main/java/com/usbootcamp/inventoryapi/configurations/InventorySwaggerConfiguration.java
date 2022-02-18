@@ -50,6 +50,28 @@ public class InventorySwaggerConfiguration {
                 .securitySchemes(Lists.newArrayList(apiKey()))
                 .useDefaultResponseMessages(false);
     }
+    
+    @Bean
+    public Docket apiProduct10Docket() {
+        return new Docket(DocumentationType.SWAGGER_2)
+        		.groupName("products-api-1.0")
+                .select()
+                .apis(RequestHandlerSelectors
+                        .basePackage("com.usbootcamp.inventoryapi"))
+                .paths(PathSelectors.regex("/products/v1.0.*"))
+                .build()
+                .apiInfo(getApiInfo())
+                .forCodeGeneration(true)
+                .genericModelSubstitutes(ResponseEntity.class)
+                .ignoredParameterTypes(Pageable.class)
+                .ignoredParameterTypes(java.sql.Date.class)
+                .directModelSubstitute(java.time.LocalDate.class, java.sql.Date.class)
+                .directModelSubstitute(java.time.ZonedDateTime.class, Date.class)
+                .directModelSubstitute(java.time.LocalDateTime.class, Date.class)
+                .securityContexts(Lists.newArrayList(securityContext()))
+                .securitySchemes(Lists.newArrayList(apiKey()))
+                .useDefaultResponseMessages(false);
+    }
     @Bean
     public Docket ap11Docket() {
         return new Docket(DocumentationType.SWAGGER_2)

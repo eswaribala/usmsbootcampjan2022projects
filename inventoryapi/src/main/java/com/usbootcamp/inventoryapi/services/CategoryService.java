@@ -15,11 +15,7 @@ public class CategoryService {
 	private CategoryRepository categoryRepository;   
    
    public Category addCategory(Category category) {
-	 if(category.getProducts().size()>0) {  
-	   for(Product product : category.getProducts()) {
-		   product.setCategory(category);		   
-	   }
-	 }
+	 
 	   return this.categoryRepository.save(category);
    }
    
