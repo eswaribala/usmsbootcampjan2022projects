@@ -12,7 +12,10 @@ import com.usbootcamp.stockapi.models.Payment;
 import com.usbootcamp.stockapi.models.Product;
 import com.usbootcamp.stockapi.repositories.ProductRepo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class StockPublisher {
     @Autowired
 	private ProductRepo productRepo;
@@ -30,7 +33,7 @@ public class StockPublisher {
 	
 		 if(product!=null) {
 			 
-			 
+			 log.info("product"+product.getProductId());
 			 MessageChannel messageChannel=stockFacade.outChannel();
 		    	return messageChannel.send(MessageBuilder
 		                .withPayload(product)
