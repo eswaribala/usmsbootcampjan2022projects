@@ -51,7 +51,7 @@ public class OrderLoggerDelegate implements JavaDelegate {
     headers.setContentType(MediaType.APPLICATION_JSON);
     HttpEntity request = new HttpEntity<>(order,headers);
    ResponseEntity<String> response= restTemplate.
-     postForEntity(serviceUrl+"orders",request, String.class);
+     postForEntity(serviceUrl+"orders/?version=1.0",request, String.class);
    LOGGER.info("Response"+response.getBody());
   }
 
