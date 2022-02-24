@@ -29,6 +29,7 @@ public class OrderLoggerDelegate implements JavaDelegate {
  private String serviceUrl;
   private final Logger LOGGER = Logger.getLogger(OrderLoggerDelegate.class.getName());
   
+   private boolean status;
   public void execute(DelegateExecution execution) throws Exception {
     
     LOGGER.info("\n\n  ... LoggerDelegate invoked by "
@@ -53,6 +54,10 @@ public class OrderLoggerDelegate implements JavaDelegate {
    ResponseEntity<String> response= restTemplate.
      postForEntity(serviceUrl+"orders/?version=1.0",request, String.class);
    LOGGER.info("Response"+response.getBody());
+   if(response.getBody().contains("Order Published"))
+	   status=true;
+   execution.setVariable("status", status);
+   
   }
 
 }

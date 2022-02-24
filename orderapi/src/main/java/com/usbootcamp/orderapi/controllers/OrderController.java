@@ -23,6 +23,6 @@ public class OrderController {
     	if(orderService.publishOrder(order))
     		return ResponseEntity.status(HttpStatus.ACCEPTED).body("Order Published....");
     	else
-    		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Order Not Published....");
+    		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Not Processed....");
     }
 }

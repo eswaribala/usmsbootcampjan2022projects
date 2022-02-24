@@ -17,6 +17,8 @@ public class OrderService {
     
     public boolean publishOrder(Order order) {
     	MessageChannel messageChannel=orderFacade.outChannel();
+    	if(order.getOrderId()==0)
+    		return false;
     	return messageChannel.send(MessageBuilder
                 .withPayload(order)
                 .setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON)
