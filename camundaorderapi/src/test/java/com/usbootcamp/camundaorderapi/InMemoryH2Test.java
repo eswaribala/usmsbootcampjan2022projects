@@ -37,7 +37,7 @@ public class InMemoryH2Test {
   public void testHappyPath() {
     // Drive the process by API and assert correct behavior by camunda-bpm-assert
 
-    Mocks.register("logger", new LoggerDelegate());
+    Mocks.register("logger", new OrderLoggerDelegate());
 
     ProcessInstance processInstance = processEngine().getRuntimeService()
         .startProcessInstanceByKey(ProcessConstants.PROCESS_DEFINITION_KEY);
