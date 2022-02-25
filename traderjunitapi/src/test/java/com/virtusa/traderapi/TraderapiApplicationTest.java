@@ -2,6 +2,7 @@ package com.virtusa.traderapi;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -21,6 +22,7 @@ class TraderapiApplicationTest {
 		trader=new Trader();
 	}
 	@Test
+	@RepeatedTest(5)
 	void testTraderInstanceNotNull() {
 	 Assert.assertNotNull(trader);
 	}
