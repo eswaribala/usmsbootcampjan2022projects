@@ -14,7 +14,7 @@
   </test> --> <!-- Test -->
   <test name="TraderModel" parallel="true" thread-count="5" >
   <classes>
-   <class name="com.virtusa.traderapi.TraderapiApplicationTests"></class>
+   <class name="com.virtusa.traderapi.*"></class>
   </classes>
   </test>
   
