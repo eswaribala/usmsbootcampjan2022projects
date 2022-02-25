@@ -1,9 +1,12 @@
 package com.virtusa.traderapi;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -33,6 +36,7 @@ class TraderapiApplicationTest {
         Assert.assertTrue(trader.getName().getFirstName().startsWith("t"));
     }
 	@ParameterizedTest
+	@Timeout(unit = TimeUnit.SECONDS,value = 5)
     @CsvFileSource(resources = "./trader2022.csv", numLinesToSkip = 1)
     void testWithCsvFileSource(String firstName, String lastName) {
 		trader.setName(new FullName(firstName,"",lastName));
