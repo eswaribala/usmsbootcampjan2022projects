@@ -12,14 +12,14 @@
   </class>
   </classes>
   </test> --> <!-- Test -->
-  <test name="TraderModel">
+  <test name="TraderModel" parallel="true" thread-count="5" >
   <classes>
    <class name="com.virtusa.traderapi.TraderapiApplicationTests"></class>
   </classes>
   </test>
   
-  <listeners>
+ <!--  <listeners>
           <listener class-name="org.uncommons.reportng.HTMLReporter"/>
          <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-</listeners>
+</listeners> -->
 </suite> <!-- Suite -->
