@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +13,7 @@ import com.virtusa.traderapi.models.FullName;
 import com.virtusa.traderapi.models.Trader;
 
 @SpringBootTest
-class TraderapiApplicationTests {
+class TraderapiApplicationTest {
 
 	private static Trader trader;
 	@BeforeAll
@@ -29,6 +30,11 @@ class TraderapiApplicationTests {
 		trader.setName(new FullName(firstName,"",""));
         Assert.assertTrue(trader.getName().getFirstName().startsWith("t"));
     }
-	
+	@ParameterizedTest
+    @CsvFileSource(resources = "./trader.csv", numLinesToSkip = 1)
+    void testWithCsvFileSource(String firstName, String lastName) {
+		trader.setName(new FullName(firstName,"",lastName));
+        Assert.assertTrue(trader.getName().getFirstName().length()>5);
+    }
 
 }
