@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.bohnman.squiggly.Squiggly;
 import com.github.bohnman.squiggly.util.SquigglyUtils;
-import com.virtusa.traderapi.models.Bank;
+
 import com.virtusa.traderapi.models.Trader;
 
 import com.virtusa.traderapi.services.TraderService;
