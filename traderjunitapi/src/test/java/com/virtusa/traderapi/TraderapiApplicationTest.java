@@ -31,10 +31,12 @@ class TraderapiApplicationTest {
         Assert.assertTrue(trader.getName().getFirstName().startsWith("t"));
     }
 	@ParameterizedTest
-    @CsvFileSource(resources = "./trader.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "./trader2022.csv", numLinesToSkip = 1)
     void testWithCsvFileSource(String firstName, String lastName) {
 		trader.setName(new FullName(firstName,"",lastName));
         Assert.assertTrue(trader.getName().getFirstName().length()>5);
     }
 
+	
+	
 }
