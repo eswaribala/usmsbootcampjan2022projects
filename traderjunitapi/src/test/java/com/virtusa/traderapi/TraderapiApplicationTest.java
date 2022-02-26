@@ -75,8 +75,10 @@ class TraderapiApplicationTest {
 	    // when
 	   Trader found = traderRepo.findTraderByEmail(trader.getEmail());
 	 
+	   
 	    // then
-	    Assert.assertEquals(found.getDob(),trader.getDob());
+	   // Assert.assertEquals(found.getDob(),trader.getDob().plusMonths(1));
+	   Assert.assertEquals(found.getDob(),trader.getDob());
 	}
 	
 }
