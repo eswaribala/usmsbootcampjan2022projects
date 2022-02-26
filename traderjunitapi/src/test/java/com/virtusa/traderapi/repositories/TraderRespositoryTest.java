@@ -31,6 +31,7 @@ public class TraderRespositoryTest {
     	trader.setEmail("trader1@gmail.com");
     	trader.setTradingLimit(450743);
     	trader.setBank(null);
+    	//stub--preconfigured response
     	Optional<Trader> traderObj=Optional.of(trader);
     	when(traderRepo.findById(3568036L)).thenReturn(traderObj);
     	
