@@ -1,11 +1,14 @@
 package com.virtusa.traderapi;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.LocalDate;
 import java.util.concurrent.TimeUnit;
 
 import javax.transaction.Transactional;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
@@ -14,7 +17,6 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
@@ -42,20 +44,20 @@ class TraderapiApplicationTest {
 	@Test
 	@RepeatedTest(5)
 	void testTraderInstanceNotNull() {
-	 Assert.assertNotNull(trader);
+	 assertNotNull(trader);
 	}
 	@ParameterizedTest
     @ValueSource(strings = { "user1", "user84587", "test485874" })
     void hasTexts(String firstName) {
 		trader.setName(new FullName(firstName,"",""));
-        Assert.assertTrue(trader.getName().getFirstName().startsWith("t"));
+        assertTrue(trader.getName().getFirstName().startsWith("t"));
     }
 	@ParameterizedTest
 	@Timeout(unit = TimeUnit.NANOSECONDS,value = 5)
     @CsvFileSource(resources = "./trader2022.csv", numLinesToSkip = 1)
     void testWithCsvFileSource(String firstName, String lastName) {
 		trader.setName(new FullName(firstName,"",lastName));
-        Assert.assertTrue(trader.getName().getFirstName().length()>5);
+        assertTrue(trader.getName().getFirstName().length()>5);
     }
 
 	//test db level transaction
@@ -78,19 +80,19 @@ class TraderapiApplicationTest {
 	   
 	    // then
 	   // Assert.assertEquals(found.getDob(),trader.getDob().plusMonths(1));
-	   Assert.assertEquals(found.getDob(),trader.getDob());
+	   assertEquals(found.getDob(),trader.getDob());
 	}
 	
 	@ParameterizedTest
     @ValueSource(strings = { "34223", "435435", "4354" })
     void hasTraderId(String traderId) {
 		trader.setTraderId(Long.parseLong(traderId));
-		Assert.assertTrue(trader.getTraderId()>0);
+		assertTrue(trader.getTraderId()>0);
     }
 	@ParameterizedTest
     @ValueSource(strings = { "34223989", "4354359", "435499" })
     void hasTraderLimit(String tradingLimit) {
 		trader.setTradingLimit(Long.parseLong(tradingLimit));
-		Assert.assertTrue(trader.getTradingLimit()>0);
+		assertTrue(trader.getTradingLimit()>0);
     }
 }
