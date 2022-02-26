@@ -1,4 +1,4 @@
-package com.virtusa.traderapi;
+package com.virtusa.traderapi.controllers;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
