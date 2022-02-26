@@ -81,4 +81,16 @@ class TraderapiApplicationTest {
 	   Assert.assertEquals(found.getDob(),trader.getDob());
 	}
 	
+	@ParameterizedTest
+    @ValueSource(strings = { "34223", "435435", "4354" })
+    void hasTraderId(String traderId) {
+		trader.setTraderId(Long.parseLong(traderId));
+		Assert.assertTrue(trader.getTraderId()>0);
+    }
+	@ParameterizedTest
+    @ValueSource(strings = { "34223989", "4354359", "435499" })
+    void hasTraderLimit(String tradingLimit) {
+		trader.setTradingLimit(Long.parseLong(tradingLimit));
+		Assert.assertTrue(trader.getTradingLimit()>0);
+    }
 }
