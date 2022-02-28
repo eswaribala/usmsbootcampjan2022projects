@@ -21,6 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+
 
 import com.virtusa.traderapi.models.FullName;
 import com.virtusa.traderapi.models.Trader;
@@ -95,4 +97,6 @@ class TraderapiApplicationTest {
 		trader.setTradingLimit(Long.parseLong(tradingLimit));
 		assertTrue(trader.getTradingLimit()>0);
     }
+	
+	
 }

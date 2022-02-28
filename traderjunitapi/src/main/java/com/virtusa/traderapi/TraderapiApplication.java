@@ -11,5 +11,5 @@ public class TraderapiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TraderapiApplication.class, args);
 	}
-
+    
 }
