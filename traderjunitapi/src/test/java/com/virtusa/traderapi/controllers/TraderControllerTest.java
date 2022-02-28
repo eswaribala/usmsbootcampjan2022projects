@@ -30,9 +30,7 @@ import com.virtusa.traderapi.services.TraderService;
 public class TraderControllerTest {
 
 	 @Autowired
-	    private MockMvc mockMvc;
-
-	  
+	    private MockMvc mockMvc;	  
 
 	    @MockBean
 	    TraderService traderService;
