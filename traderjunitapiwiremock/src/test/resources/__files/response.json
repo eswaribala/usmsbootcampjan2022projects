@@ -1,0 +1,241 @@
+[ {
+      "name" : {
+        "firstName" : "Parameswari",
+        "lastName" : "Bala",
+        "middleName" : ""
+      },
+      "tradingLimit" : 150000,
+      "email" : "eswaribala@gmail.com",
+      "dob" : "1970-12-02",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/1"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/1"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/1/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Parameswari",
+        "lastName" : "Bala",
+        "middleName" : ""
+      },
+      "tradingLimit" : 100000,
+      "email" : "eswaribala@gmail.com",
+      "dob" : "1970-12-02",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/2"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/2"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/2/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Parameswari",
+        "lastName" : "Bala",
+        "middleName" : ""
+      },
+      "tradingLimit" : 500000,
+      "email" : "param@gmail.com",
+      "dob" : "1970-01-27",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/3"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/3"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/3/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Vignesh",
+        "lastName" : "Bala",
+        "middleName" : ""
+      },
+      "tradingLimit" : 43959,
+      "email" : "viki@gmail.com",
+      "dob" : "1995-12-07",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/4"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/4"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/4/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Ryan",
+        "lastName" : "T",
+        "middleName" : ""
+      },
+      "tradingLimit" : 43959,
+      "email" : "ryan@gmail.com",
+      "dob" : "2000-12-07",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/5"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/5"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/5/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Vinita",
+        "lastName" : "Kumari",
+        "middleName" : ""
+      },
+      "tradingLimit" : 45000,
+      "email" : "vinita@gmail.com",
+      "dob" : "2000-12-01",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/6"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/6"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/6/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Vishal",
+        "lastName" : "Kumar",
+        "middleName" : ""
+      },
+      "tradingLimit" : 45000,
+      "email" : "vishal@gmail.com",
+      "dob" : "2000-12-01",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/7"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/7"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/7/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Anoop",
+        "lastName" : "Kumar",
+        "middleName" : ""
+      },
+      "tradingLimit" : 45000,
+      "email" : "anoop@gmail.com",
+      "dob" : "2000-12-01",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/8"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/8"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/8/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Anoop123",
+        "lastName" : "Kumar",
+        "middleName" : ""
+      },
+      "tradingLimit" : 45000,
+      "email" : "anoop123@gmail.com",
+      "dob" : "2000-12-01",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/9"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/9"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/9/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Anoop1234",
+        "lastName" : "Kumar",
+        "middleName" : ""
+      },
+      "tradingLimit" : 45000,
+      "email" : "anoop1234@gmail.com",
+      "dob" : "2000-12-01",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/10"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/10"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/10/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Anusha",
+        "lastName" : "Kumari",
+        "middleName" : ""
+      },
+      "tradingLimit" : 45000,
+      "email" : "ausha@gmail.com",
+      "dob" : "2000-12-01",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/11"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/11"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/11/bank"
+        }
+      }
+    }, {
+      "name" : {
+        "firstName" : "Anusha32423",
+        "lastName" : "Kumari",
+        "middleName" : ""
+      },
+      "tradingLimit" : 45000,
+      "email" : "ausha425435@gmail.com",
+      "dob" : "2000-12-01",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:7078/traders/12"
+        },
+        "trader" : {
+          "href" : "http://localhost:7078/traders/12"
+        },
+        "bank" : {
+          "href" : "http://localhost:7078/traders/12/bank"
+        }
+      }
+    } ]
