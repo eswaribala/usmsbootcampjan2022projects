@@ -44,7 +44,7 @@ public class Policy {
 	@Enumerated(EnumType.STRING)
 	@Column(name="Premium_Type")
 	private PremiumType premiumType;
-	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
 	@JoinColumn(foreignKey = @ForeignKey(name = "Mobile_No"), name = "Mobile_No" )
 	private PolicyHolder policyHolder;
 	

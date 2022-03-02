@@ -30,7 +30,7 @@ public class SwaggerConfiguration {
 	 @Bean
 	    public Docket apiDocketcategoryparamv10() {
 	        return new Docket(DocumentationType.SWAGGER_2)
-	        		.groupName("vehicle-api-param-1.0")
+	        		.groupName("insurance-api-param-1.0")
 	                .select()
 	                .apis(RequestHandlerSelectors
 	                        .basePackage("com.virtusa.policyapi"))

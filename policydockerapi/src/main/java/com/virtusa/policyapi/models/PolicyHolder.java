@@ -20,6 +20,7 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,8 +44,9 @@ public class PolicyHolder {
 	private LocalDate dob;
 	@Column(name="Adhar_Card",nullable = false,length = 100)
 	private String adharCard;
-	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
 	@JoinColumn(foreignKey = @ForeignKey(name = "Reg_No"), name = "Reg_No" )
+	@ApiModelProperty(hidden = true)
 	private Vehicle vehicle;
 
 }
