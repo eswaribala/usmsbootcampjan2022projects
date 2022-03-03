@@ -20,5 +20,10 @@ public class PolicyHolderService {
 		policyHolder.setVehicle(vehicle);
 		return this.policyHolderRepo.save(policyHolder);
 	}
+	
+	
+	public PolicyHolder getPolicyHolderById(long mobileNo) {
+		return this.policyHolderRepo.findById(mobileNo).orElse(null);
+	}
 
 }

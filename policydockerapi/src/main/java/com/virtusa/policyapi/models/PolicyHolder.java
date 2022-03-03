@@ -44,7 +44,7 @@ public class PolicyHolder {
 	private LocalDate dob;
 	@Column(name="Adhar_Card",nullable = false,length = 100)
 	private String adharCard;
-	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+	@OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
 	@JoinColumn(foreignKey = @ForeignKey(name = "Reg_No"), name = "Reg_No" )
 	@ApiModelProperty(hidden = true)
 	private Vehicle vehicle;

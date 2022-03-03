@@ -19,6 +19,7 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,6 +33,7 @@ public class Policy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Policy_Id")
+    @ApiModelProperty(hidden = true)
 	private long policyId;
 	@Column(name="Insured_Sum")
 	private long insuredSum;
@@ -44,8 +46,9 @@ public class Policy {
 	@Enumerated(EnumType.STRING)
 	@Column(name="Premium_Type")
 	private PremiumType premiumType;
-	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+	@OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
 	@JoinColumn(foreignKey = @ForeignKey(name = "Mobile_No"), name = "Mobile_No" )
+	@ApiModelProperty(hidden = true)
 	private PolicyHolder policyHolder;
 	
 }
