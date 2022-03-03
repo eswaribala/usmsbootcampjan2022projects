@@ -28,6 +28,7 @@ public class LoggerDelegate implements JavaDelegate {
             + ", variables=" + execution.getVariables()
             + " \n\n");
     
+    execution.setVariable("status", true);
   }
 
 }

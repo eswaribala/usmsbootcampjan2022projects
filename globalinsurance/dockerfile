@@ -1,0 +1,4 @@
+FROM java:8
+EXPOSE 7080
+ADD /target/globalinsurance.jar globalinsurance.jar
+ENTRYPOINT ["java","-jar","globalinsurance.jar"]
