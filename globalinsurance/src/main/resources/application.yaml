@@ -2,9 +2,9 @@ spring.datasource:
   #url: jdbc:h2:./camunda-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
 #shareable h2 database: jdbc:h2:./camunda-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://mysql:3306/globalinsurancedb?useSSL=true&nullCatalogMeansCurrent=true 
+  url: jdbc:mysql://localhost:3306/globalinsurancedb2022?useSSL=true&nullCatalogMeansCurrent=true 
   username: root
-  password: password
+  password: vignesh
 #spring.h2.console.enabled: true
 spring.jpa.hibernate.ddl-auto: update
  
@@ -19,8 +19,7 @@ camunda.bpm:
 #  default-serialization-format: application/json
 server.port: 7080
 #kafka properties
-kafka.bootstrapAddress: 
-             localhost: 9092
+kafka.bootstrapAddress: localhost:9092
 policy.topic.name: vpolicy2022
 policy.topic.group.id: group_id
 

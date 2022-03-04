@@ -7,6 +7,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=globalinsurancedb
+    networks:
+        - service 
     volumes:
       - /data/mysql
     healthcheck:        
@@ -30,6 +32,10 @@ services:
     ports:
        #- 8060-8070:7070
         - 7084:7080
+    networks:
+        - service 
     volumes:
       - /data/compose-app
-    
+networks:
+  service:
+     external: true
