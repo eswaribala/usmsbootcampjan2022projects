@@ -4,7 +4,10 @@ import java.util.logging.Logger;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.vusbc.globalinsurance.services.PolicySearchService;
 
 /**
  * This is an easy adapter implementation
@@ -14,6 +17,8 @@ import org.springframework.stereotype.Component;
 @Component("logger")
 public class LoggerDelegate implements JavaDelegate {
  
+  @Autowired	
+  private PolicySearchService policySearchService;	
   private final Logger LOGGER = Logger.getLogger(LoggerDelegate.class.getName());
   
   public void execute(DelegateExecution execution) throws Exception {
@@ -27,6 +32,9 @@ public class LoggerDelegate implements JavaDelegate {
             + ", executionId=" + execution.getId()
             + ", variables=" + execution.getVariables()
             + " \n\n");
+    long policyNo=Long.parseLong(execution.getVariable("policyNo").toString());
+    policySearchService.publishPolicyNo(policyNo);
+    		
     
     execution.setVariable("status", true);
   }

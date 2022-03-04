@@ -20,7 +20,7 @@ public class PolicySearchService {
     private String policyTopicName;
 	 @Autowired
 	 private KafkaTemplate<String, Long> kafkaTemplate;
-	 public void  publishPayment(long policyId) {
+	 public void  publishPolicyNo(long policyId) {
 	    	
 	    
 	    	
