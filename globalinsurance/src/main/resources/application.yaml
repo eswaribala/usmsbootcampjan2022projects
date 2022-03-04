@@ -18,3 +18,11 @@ camunda.bpm:
     create: All Tasks
 #  default-serialization-format: application/json
 server.port: 7080
+#spring.cloud.stream.kafka.binder.brokers: localhost:9092
+#spring.cloud.stream.kafka.binder.autoCreateTopics: false
+#spring.cloud.stream.bindings.stock-out.destination=vstock2022
+#spring.cloud.stream.bindings.stock-out.content-type=application/json
+#spring.cloud.stream.bindings.payment-in.destination=vpayment2022
+#spring.cloud.stream.bindings.payment-in.content-type=application/json
+
+
