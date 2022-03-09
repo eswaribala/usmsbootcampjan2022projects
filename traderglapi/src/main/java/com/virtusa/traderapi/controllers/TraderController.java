@@ -47,7 +47,11 @@ public class TraderController {
 		return this.traderService.getAllTraders();
 	}
 	
-	
+	//get
+		@GetMapping(value="/banks",params = "version=1.0")
+		public List<String> getAllDistinctBankNames(){
+			return this.traderService.getAllDistinctBankNames();
+		}
 
 	@PutMapping(value="/{bankId}",params = "version=1.0")
 	public List<Trader> updateTraderWithFKNull(@PathVariable("bankId") long bankId){

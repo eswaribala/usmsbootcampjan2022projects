@@ -9,13 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.usbootcamp</groupId>
-	<artifactId>orderapi</artifactId>
+	<artifactId>orderapispringkafka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>orderapi</name>
+	<name>orderapispringkafka</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>Hoxton.SR6</spring-cloud.version>
+		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -49,12 +49,7 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- Kafka dependency -->
-		<!-- Kafka Auto configuration -->
-	   <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
-	    </dependency>
+		
 		
 		
 			<!-- swagger -->
@@ -99,10 +94,7 @@
 		    <version>19.0</version>
 		</dependency>
 		
-		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-bus-kafka</artifactId>
-		</dependency>
+		
 		
  	 <dependency>
             <groupId>org.slf4j</groupId>
@@ -117,19 +109,12 @@
             <artifactId>logback-classic</artifactId>
             
         </dependency>
-		
-	</dependencies>
-	<dependencyManagement>
-		<dependencies>
 			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+	</dependencies>
+	
 
 	<build>
 		<plugins>

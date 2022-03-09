@@ -70,4 +70,12 @@ public List<Trader> updateBank(long bankId) {
 		
 		return traderList;
 	}
+
+   public List<String> getAllDistinctBankNames(){
+	   return this.traderRepo.findAllDistinctBanks();
+   }
+
 }
+
+
+

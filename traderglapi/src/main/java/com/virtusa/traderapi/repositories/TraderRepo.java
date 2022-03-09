@@ -14,5 +14,7 @@ public interface TraderRepo extends JpaRepository<Trader,Long>{
 	//JPA refers class and fields not table
 		@Query("select trader from Trader trader where trader.bank=:bank")
 		public List<Trader> findByBank(@Param("bank") Bank bank);
+		@Query("SELECT DISTINCT trader.bank.bankName FROM Trader trader")
+		public List<String> findAllDistinctBanks();
 
 }
