@@ -9,7 +9,7 @@ stages{
                       steps{
                           script{
                                  try{
-                                      sh " mvn -f pom.xml clean install"
+                                      sh " mvn  clean install"
                                  }
                                  catch(all){
                                       echo "Build Failed"
@@ -22,7 +22,7 @@ stages{
                       steps{
                           script{
                                  try{
-                                      sh " mvn -f pom.xml test"
+                                      sh " mvn  test"
                                  }
                                  catch(all){
                                       echo "Test Failed"
