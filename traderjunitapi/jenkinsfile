@@ -5,87 +5,23 @@ tools {
     maven 'maven'
   }
 stages{
-        stage('Test'){
+        stage('Build'){
                       steps{
                           script{
                                  try{
-                                      sh " mvn -f pom.xml test"
+                                      sh " mvn -f pom.xml clean install"
                                  }
                                  catch(all){
-                                      echo "Test stage Failed"
+                                      echo "Build Failed"
                                  }
                           }
                      }
-        }
-        stage("Test and Jacoco Static analysis"){
-               steps{
-                    script{
-                        try{
-                              junit 'target/surefire-reports/**/*.xml'
-                              jacoco()
-                        }
-                        catch(all){
-                                  echo "Install stage Failed"
-                        }
-                    }
-               }
-        }
-        stage('Maven Build'){
-                    steps{
-                        script{
-                               try{
-                                    sh "mvn -f pom.xml clean install"
-                               }
-                               catch(all){
-                                    echo "Build stage Failed"
-                               }
-                        }
-                    }
-                }
-        stage('SonarQube Report'){
-                    steps{
-                        sh "mvn sonar:sonar -Dsonar.projectKey=user_service -Dsonar.host.url=https://tools.publicis.sapient.com/sonar -Dsonar.login=c3ac3b9bc92c21fbd8a80665abcabff3baea8549"
-                    }
-                    post{
-                        always{
-                            junit allowEmptyResults: true,testResults: '**/test-results/*.xml'
-                        }
-                        failure{
-                            echo "Install stage Failed"
-                        }
-                    }
-        }
-        stage('Build Docker'){
-            steps{
-                script{
-                     sh "docker build -f dockerfile -t userapp . "
-                }
-            }
-        }
-        stage('Run Image'){
-             steps{
-                 script{
-                        isContainer = sh "docker ps -q -f name=userservice-c1"
-                        if ( !isContainer ){
-                            isExited = sh "docker ps -aq -f status=exited -f name=userservice-c1"
-
-                            if ( !isExited ){
-                                sh "docker container stop userservice-c1"
-                                sh "docker container rm userservice-c1"
-                                sh "docker run --net psnetwork -d -e JAEGER_AGENT_HOST=jaeger -e JAEGER_AGENT_PORT=6831 -e AWS_PROFILE=dev -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_REGION=us-east-1 --name=userservice-c1 -p 6150:6060 userapp:latest"
-                            }
-                            else{
-                                sh "docker container rm userservice-c1"
-                                sh "docker run --net psnetwork -d -e JAEGER_AGENT_HOST=jaeger -e JAEGER_AGENT_PORT=6831 -e AWS_PROFILE=dev -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_REGION=us-east-1 --name=userservice-c1 -p 6150:6060 userapp:latest"
-                            }
-                        }
-                        else{
-                            sh "docker container stop userservice-c1"
-                            sh "docker container rm userservice-c1"
-                            sh "docker run --net psnetwork -d -e JAEGER_AGENT_HOST=jaeger -e JAEGER_AGENT_PORT=6831 -e AWS_PROFILE=dev -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_REGION=us-east-1 --name=userservice-c1 -p 6150:6060 userapp:latest"
-                        }
+                   }
+                   
                  }
-             }
-        }
-    }
-}
+                 
+                 
+                 
+                 }
+                     
+      
