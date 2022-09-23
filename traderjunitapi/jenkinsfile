@@ -9,7 +9,7 @@ stages{
                       steps{
                           script{
                                  try{
-                                      sh " mvn -f ./pom.xml clean install"
+                                      sh " mvn -f pom.xml clean install"
                                  }
                                  catch(all){
                                       echo "Build Failed"
@@ -22,7 +22,7 @@ stages{
                       steps{
                           script{
                                  try{
-                                      sh " mvn -f ./pom.xml test"
+                                      sh " mvn -f pom.xml test"
                                  }
                                  catch(all){
                                       echo "Test Failed"
@@ -36,7 +36,7 @@ stages{
                steps{
                     script{
                         try{
-                              junit './target/surefire-reports/**/*.xml'
+                              junit 'target/surefire-reports/**/*.xml'
                               jacoco()
                         }
                         catch(all){
