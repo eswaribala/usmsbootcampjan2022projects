@@ -9,7 +9,7 @@ stages{
                       steps{
                           script{
                                  try{
-                                      sh " mvn  clean install"
+                                      sh " mvn -f traderjunitapi/pom.xml  clean install"
                                  }
                                  catch(all){
                                       echo "Build Failed"
@@ -22,7 +22,7 @@ stages{
                       steps{
                           script{
                                  try{
-                                      sh " mvn  test"
+                                      sh " mvn -f traderjunitapi/pom.xml  test"
                                  }
                                  catch(all){
                                       echo "Test Failed"
