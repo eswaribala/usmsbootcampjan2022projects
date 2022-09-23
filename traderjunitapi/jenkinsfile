@@ -17,6 +17,36 @@ stages{
                           }
                      }
                    }
+
+        stage('Test'){
+                      steps{
+                          script{
+                                 try{
+                                      sh " mvn -f pom.xml test"
+                                 }
+                                 catch(all){
+                                      echo "Test Failed"
+                                 }
+                          }
+                     }
+                   }
+
+
+         stage("Test and Jacoco Static analysis"){
+               steps{
+                    script{
+                        try{
+                              junit 'target/surefire-reports/**/*.xml'
+                              jacoco()
+                        }
+                        catch(all){
+                                  echo "Install stage Failed"
+                        }
+                    }
+               }
+        }
+
+
                    
                 }
                  
