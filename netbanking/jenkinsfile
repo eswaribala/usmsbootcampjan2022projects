@@ -9,7 +9,7 @@ stages{
                       steps{
                           script{
                                  try{
-                                      sh " mvn -f traderjunitapi/pom.xml  clean install"
+                                      sh " mvn -f netbanking/pom.xml  clean install -DskipTests"
                                  }
                                  catch(all){
                                       echo "Build Failed"
@@ -18,18 +18,7 @@ stages{
                      }
                    }
 
-        stage('Test'){
-                      steps{
-                          script{
-                                 try{
-                                      sh " mvn -f traderjunitapi/pom.xml  test"
-                                 }
-                                 catch(all){
-                                      echo "Test Failed"
-                                 }
-                          }
-                     }
-                   }
+        
 
 
          
