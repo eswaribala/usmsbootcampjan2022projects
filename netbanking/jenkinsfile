@@ -1,0 +1,42 @@
+pipeline{
+agent any
+
+tools {
+    maven 'maven'
+  }
+stages{
+        stage('Build'){
+                      steps{
+                          script{
+                                 try{
+                                      sh " mvn -f traderjunitapi/pom.xml  clean install"
+                                 }
+                                 catch(all){
+                                      echo "Build Failed"
+                                 }
+                          }
+                     }
+                   }
+
+        stage('Test'){
+                      steps{
+                          script{
+                                 try{
+                                      sh " mvn -f traderjunitapi/pom.xml  test"
+                                 }
+                                 catch(all){
+                                      echo "Test Failed"
+                                 }
+                          }
+                     }
+                   }
+
+
+         
+
+
+                   
+                }
+                 
+                 
+ }
