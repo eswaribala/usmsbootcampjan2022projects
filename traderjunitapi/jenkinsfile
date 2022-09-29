@@ -32,19 +32,7 @@ stages{
                    }
 
 
-         stage("Test and Jacoco Static analysis"){
-               steps{
-                    script{
-                        try{
-                              junit 'traderjunitapi/target/surefire-reports/**/*.xml'
-                              jacoco()
-                        }
-                        catch(all){
-                                  echo "Install stage Failed"
-                        }
-                    }
-               }
-        }
+         
 
 
                    
